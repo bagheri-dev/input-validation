@@ -34,7 +34,7 @@ export default function Offices() {
                 type="email"
                 placeholder="Email"
               />
-              <button className="px-5 py-3 bg-green-700 text-white">✔</button>
+              <button type="submit" className="px-5 py-3 bg-green-700 text-white">✔</button>
             </div>
           </form>
         </div>
