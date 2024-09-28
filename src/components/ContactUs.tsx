@@ -15,16 +15,19 @@ export default function Contactus() {
     idea: "",
   });
 
-  const [errors , setErrors] = useState({})
+  const [errors, setErrors] = useState({});
   // Submit
-  const handleSubmit = (event : React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(formData);
     const ValidationError = validateForm(formData);
     setErrors(ValidationError);
+
+    if (Object.keys(ValidationError).length === 0) {
+      console.log("Successfully Submit", formData);
+    }
   };
   // change input value
-  const handleChange = (el : React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (el: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = el.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -43,13 +46,17 @@ export default function Contactus() {
             <input
               className="outline-none w-full px-4 py-3"
               type="text"
-              name="componyname"
-              placeholder="Your Compony name"
+              name="companyname"
+              placeholder="Your company name"
               onChange={handleChange}
               value={formData.companyname}
             />
+            {errors.companyname && (
+              <span className="text-red-500 py-2 block text-base">
+                {errors.companyname}
+              </span>
+            )}
           </div>
-            {errors.companyname && <span className="text-red-500 mt-5">{errors.companyname}</span>}
           <div className="border-b-4 border-b-gray-600 text-xl">
             <input
               className="outline-none w-full px-4 py-3"
@@ -59,6 +66,11 @@ export default function Contactus() {
               onChange={handleChange}
               value={formData.natureofbussiness}
             />
+            {errors.natureofbussiness && (
+              <span className="text-red-500 py-2 block text-base">
+                {errors.natureofbussiness}
+              </span>
+            )}
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="border-b-4 border-b-gray-600 text-xl">
@@ -70,6 +82,11 @@ export default function Contactus() {
                 onChange={handleChange}
                 value={formData.address}
               />
+              {errors.address && (
+                <span className="text-red-500 py-2 block text-base">
+                  {errors.address}
+                </span>
+              )}
             </div>
             <div className="border-b-4 border-b-gray-600 text-xl">
               <input
@@ -80,6 +97,11 @@ export default function Contactus() {
                 onChange={handleChange}
                 value={formData.postcode}
               />
+              {errors.postcode && (
+                <span className="text-red-500 py-2 block text-base">
+                  {errors.postcode}
+                </span>
+              )}
             </div>
           </div>
           <div className="border-b-4 border-b-gray-600 text-xl">
@@ -91,6 +113,11 @@ export default function Contactus() {
               onChange={handleChange}
               value={formData.contactname}
             />
+            {errors.contactname && (
+              <span className="text-red-500 py-2 block text-base">
+                {errors.contactname}
+              </span>
+            )}
           </div>
           <div className="border-b-4 border-b-gray-600 text-xl">
             <input
@@ -101,6 +128,11 @@ export default function Contactus() {
               onChange={handleChange}
               value={formData.contactphone}
             />
+            {errors.contactphone && (
+              <span className="text-red-500 py-2 block text-base">
+                {errors.contactphone}
+              </span>
+            )}
           </div>
           <div className="border-b-4 border-b-gray-600 text-xl">
             <input
@@ -111,6 +143,11 @@ export default function Contactus() {
               onChange={handleChange}
               value={formData.email}
             />
+            {errors.email && (
+              <span className="text-red-500 py-2 block text-base">
+                {errors.email}
+              </span>
+            )}
           </div>
           <div className="border-b-4 border-b-gray-600 text-xl">
             <input
@@ -121,6 +158,11 @@ export default function Contactus() {
               onChange={handleChange}
               value={formData.linkedin}
             />
+            {errors.linkedin && (
+              <span className="text-red-500 py-2 block text-base">
+                {errors.linkedin}
+              </span>
+            )}
           </div>
           <div className="border-b-4 border-b-gray-600 text-xl">
             <input
@@ -131,6 +173,11 @@ export default function Contactus() {
               onChange={handleChange}
               value={formData.idea}
             />
+            {errors.idea && (
+              <span className="text-red-500 py-2 block text-base">
+                {errors.idea}
+              </span>
+            )}
           </div>
           <div>
             <button

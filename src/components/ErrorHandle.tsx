@@ -1,5 +1,10 @@
 import { FormData, FormErrors } from "./interface";
 
+function validateEmail (email : string) {
+    const emailRegex = /^[^\s@]+@gmail\.com$/;
+    return emailRegex.test(email)
+}
+
 const validateForm = (data : FormData) : FormErrors => {
       
       
@@ -18,20 +23,22 @@ const validateForm = (data : FormData) : FormErrors => {
         errors.address = "Address is required"
     }
     // Error Postcode
-    if(!data.postcode) {
-        errors.postcode = "Postcode is required"
+    if(!data.postcode && data.postcode.length !== 10) {
+        errors.postcode = "Postcode must be exactly 10 digits"
     }
     // Error Contact name
     if(!data.contactname) {
         errors.contactname = "Contact name is required"
     }
     // Error Contact Phone
-    if(!data.contactphone) {
-        errors.contactphone = "Contact phone is required"
+    if(!data.contactphone && !/^0\d{10}$/.test(data.contactphone)) {
+        errors.contactphone = "Phone number must be exactly 11 digits and start with 0"
     }
     // Error Email
     if(!data.email) {
         errors.email = "Email is required"
+    } else if (!validateEmail(data.email)) {
+        errors.email = "Email must be a valid Gmail address (e.g., example@gmail.com)"
     }
     // Error Linkedin
     if(!data.linkedin) {
@@ -43,6 +50,6 @@ const validateForm = (data : FormData) : FormErrors => {
     }
 
     return errors;
-  }
+  };
  
 export default validateForm;
