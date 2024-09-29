@@ -19,7 +19,7 @@ export default function Header() {
         </div>
         <div className="w-full xl:hidden">
           <nav className="xl:inline-block">
-            <ul className={`${isOpen ? "top-[7%] absolute right-0 space-y-5 bg-white p-14" : "flex flex-col xl:flex-row -top-80 right-0 bg-white absolute z-10 gap-5 text-color-primery font-bold "}`}>
+            <ul className={`${isOpen ? "top-[15%] absolute right-0 space-y-5 bg-white h-screen w-6/12" : "flex flex-col xl:flex-row -top-80 right-0 bg-white absolute z-10 gap-5 text-color-primery font-bold "}`}>
               <li>
                 <a href="#">Compony</a>
               </li>
@@ -35,7 +35,7 @@ export default function Header() {
               <li>
                 <a href="#">Portfolio</a>
               </li>
-              <li className="border-b-4 border-b-green-500">
+              <li>
                 <a href="#">Contact us</a>
               </li>
             </ul>

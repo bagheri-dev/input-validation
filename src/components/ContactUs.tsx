@@ -1,6 +1,6 @@
 import { useState } from "react";
 import validateForm from "./ErrorHandle";
-import { FormData } from "./interface";
+import { FormData, FormErrors } from "./interface";
 
 export default function Contactus() {
   const [formData, setFormData] = useState<FormData>({
@@ -15,7 +15,7 @@ export default function Contactus() {
     idea: "",
   });
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<FormErrors>({});
   // Submit
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
