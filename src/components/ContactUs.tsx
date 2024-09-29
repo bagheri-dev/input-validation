@@ -180,6 +180,9 @@ export default function Contactus() {
             )}
           </div>
           <div>
+            <input type="file" />
+          </div>
+          <div>
             <button
               className="w-full py-6 rounded-md bg-green-700 text-white "
               type="submit"
