@@ -49,6 +49,14 @@ const validateForm = (data : FormData) : FormErrors => {
         errors.idea = "idea is required"
     }
 
+    // Error File
+    if (data.file) {
+        const maxFileSize = 10 * 1024 * 1024; // 10MB in bytes
+        if (data.file.size > maxFileSize) {
+            errors.file = "File size must be less than or equal to 10 MB";
+        }
+    }
+
     return errors;
   };
  

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { MdOutlineFileUpload } from "react-icons/md";
 import validateForm from "./ErrorHandle";
 import { FormData, FormErrors } from "./interface";
 
@@ -13,6 +14,7 @@ export default function Contactus() {
     email: "",
     linkedin: "",
     idea: "",
+    file: null,
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -25,6 +27,14 @@ export default function Contactus() {
     if (Object.keys(ValidationError).length === 0) {
       console.log("Successfully Submit", formData);
     }
+  };
+  // handleFileChange
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    setFormData({
+      ...formData,
+      file: file || null,
+    });
   };
   // change input value
   const handleChange = (el: React.ChangeEvent<HTMLInputElement>) => {
@@ -179,9 +189,28 @@ export default function Contactus() {
               </span>
             )}
           </div>
-          <div>
-            <input type="file" />
+          <div className="flex justify-center text-color-primery border-2 border-dashed border-gray-500 py-10">
+            <label htmlFor="file" className="flex gap-5 text-2xl">
+              <MdOutlineFileUpload />
+              Upload Additional file
+            </label>
+            <input
+              type="file"
+              className="hidden"
+              name="file"
+              id="file"
+              accept=".zip"
+              onChange={handleFileChange}
+            />
           </div>
+          {errors.file && (
+            <span className="text-red-500 py-2 block text-base">
+              {errors.file}
+            </span>
+          )}
+          <span className="text-sm text-color-primery inline-block">
+            Attach file. File size of your documants should not exceed 10MB
+          </span>
           <div>
             <button
               className="w-full py-6 rounded-md bg-green-700 text-white "
@@ -191,7 +220,7 @@ export default function Contactus() {
             </button>
           </div>
           <div className="flex gap-3">
-            <input type="checkbox" />
+            <input name="file" type="checkbox" />
             <p>I want to protect my data by signing an NDA</p>
           </div>
         </form>

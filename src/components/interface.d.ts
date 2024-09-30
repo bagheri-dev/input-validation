@@ -8,6 +8,7 @@ export interface FormData {
     email: string;
     linkedin: string;
     idea: string;
+    file: File | null;
   }
 
   export interface FormErrors {
@@ -20,4 +21,5 @@ export interface FormData {
     email?: string;
     linkedin?: string;
     idea?: string;
+    file?: File | null;
   }
