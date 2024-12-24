@@ -14,12 +14,12 @@ export default function Header() {
   return (
     <div className="w-full mb-10">
       <header className="container mx-auto flex justify-between py-7">
-        <div className="w-full">
+        <div className="w-full px-2 xl:px-0">
           <h1 className="text-3xl font-bold text-color-primery">LOGO</h1>
         </div>
         <div className="w-full xl:hidden">
           <nav className="xl:inline-block">
-            <ul className={`${isOpen ? "top-[15%] absolute right-0 space-y-5 bg-white h-screen w-6/12" : "flex flex-col xl:flex-row -top-80 right-0 bg-white absolute z-10 gap-5 text-color-primery font-bold "}`}>
+            <ul className={`${isOpen ? "top-[15%] absolute right-0 space-y-5 bg-gray-100 h-screen w-6/12 py-2 px-4" : "flex flex-col xl:flex-row -top-80 right-0 bg-white absolute z-10 gap-5 text-color-primery font-bold "}`}>
               <li>
                 <a href="#">Compony</a>
               </li>
@@ -65,7 +65,7 @@ export default function Header() {
             </ul>
           </nav>
         </div>
-      <div className="text-3xl xl:hidden" onClick={toggleMenu}>
+      <div className="text-3xl xl:hidden px-2 xl:px-0" onClick={toggleMenu}>
       <FaBars />
       </div>
       </header>

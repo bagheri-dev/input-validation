@@ -21,5 +21,5 @@ export interface FormData {
     email?: string;
     linkedin?: string;
     idea?: string;
-    file?: File | null;
+    file?: ReactNode;
   }

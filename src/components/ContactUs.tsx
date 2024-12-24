@@ -44,7 +44,7 @@ export default function Contactus() {
   return (
     <>
       <div className="w-full">
-        <div className="space-y-10 mb-20">
+        <div className="space-y-10 mb-10 xl:mb-20 px-2">
           <h2 className="text-5xl font-bold">Contact us</h2>
           <p className="text-base text-color-primery">
             Need an experienced and skilled hand with custom IT project? <br />{" "}
